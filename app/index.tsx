@@ -15,8 +15,20 @@ export default function HomeScreen() {
   );
 
   const loadBestTime = async () => {
+    //console.log("loaded");
+
     const time = await AsyncStorage.getItem("bestTime");
-    if (time) setBestTime(parseInt(time));
+    //console.log(time);
+
+    if (time) {
+      //console.log("time is");
+
+      setBestTime(parseInt(time));
+    } else {
+      //console.log("time not");
+      setBestTime(null);
+    }
+    //console.log(bestTime);
   };
 
   const formatTime = (seconds: number) => {

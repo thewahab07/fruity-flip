@@ -50,7 +50,7 @@ class AudioManager {
 
       this.isPlaying = true;
     } catch (error) {
-      console.log("Error initializing audio:", error);
+      //console.log("Error initializing audio:", error);
     }
   }
 
@@ -64,7 +64,7 @@ class AudioManager {
         await this.flipSoundPlayer.play();
       }
     } catch (error) {
-      console.log("Error playing flip sound:", error);
+      //console.log("Error playing flip sound:", error);
     }
   }
 
@@ -80,7 +80,7 @@ class AudioManager {
         this.isPlaying = true;
       }
     } catch (error) {
-      console.log("Error playing audio:", error);
+      //console.log("Error playing audio:", error);
     }
   }
 
@@ -91,7 +91,7 @@ class AudioManager {
         this.isPlaying = false;
       }
     } catch (error) {
-      console.log("Error pausing audio:", error);
+      //console.log("Error pausing audio:", error);
     }
   }
 
@@ -104,7 +104,7 @@ class AudioManager {
         this.isPlaying = false;
       }
     } catch (error) {
-      console.log("Error stopping audio:", error);
+      //console.log("Error stopping audio:", error);
     }
   }
 
@@ -121,7 +121,7 @@ class AudioManager {
           await this.backgroundMusicPlayer.play();
           this.isPlaying = true;
         } catch (error) {
-          console.log("Error reloading music:", error);
+          //console.log("Error reloading music:", error);
         }
       } else {
         await this.play();
@@ -153,7 +153,7 @@ class AudioManager {
         this.flipSoundPlayer = null;
       }
     } catch (error) {
-      console.log("Error cleaning up audio:", error);
+      //console.log("Error cleaning up audio:", error);
     }
   }
 }

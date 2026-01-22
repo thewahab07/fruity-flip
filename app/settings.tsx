@@ -57,6 +57,7 @@ export default function SettingsScreen() {
 
   const resetBestTime = async () => {
     await AsyncStorage.removeItem("bestTime");
+    //console.log("clicked.");
   };
 
   const rateApp = () => {
