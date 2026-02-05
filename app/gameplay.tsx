@@ -1,8 +1,17 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { router } from "expo-router";
 import React, { useEffect, useRef, useState } from "react";
-import { Animated, Modal, Text, TouchableOpacity, View } from "react-native";
+import {
+  Animated,
+  Dimensions,
+  Modal,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import AudioManager from "./AudioManager";
+
+const screenWidth = Dimensions.get("window").width;
 
 const FRUITS = [
   "🍎",
@@ -293,27 +302,45 @@ export default function GameplayScreen() {
       <View className="flex-1 justify-center items-center">
         <View
           style={{
-            flexDirection: "row",
-            flexWrap: "wrap",
-            justifyContent: "center",
             width: "100%",
+            maxWidth: 400,
+            aspectRatio: config.cols / config.rows,
+            padding: 8,
           }}
         >
-          {cards.map((card, index) => {
-            const isFlipped =
-              flipped.includes(index) || matched.includes(index);
-            const cardSize = 320 / config.cols - 12;
+          {Array.from({ length: config.rows }).map((_, rowIndex) => (
+            <View
+              key={rowIndex}
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              {cards
+                .slice(rowIndex * config.cols, (rowIndex + 1) * config.cols)
+                .map((card, colIndex) => {
+                  const index = rowIndex * config.cols + colIndex;
+                  const isFlipped =
+                    flipped.includes(index) || matched.includes(index);
 
-            return (
-              <FlipCard
-                key={card.id}
-                card={card}
-                isFlipped={isFlipped}
-                onPress={() => handleCardPress(index)}
-                cardSize={cardSize}
-              />
-            );
-          })}
+                  // Calculate card size based on available space
+                  const availableWidth = Math.min(400, screenWidth - 32);
+                  const cardSize = availableWidth / config.cols - 12;
+
+                  return (
+                    <FlipCard
+                      key={card.id}
+                      card={card}
+                      isFlipped={isFlipped}
+                      onPress={() => handleCardPress(index)}
+                      cardSize={cardSize}
+                    />
+                  );
+                })}
+            </View>
+          ))}
         </View>
       </View>
 

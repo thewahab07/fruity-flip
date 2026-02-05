@@ -14,6 +14,7 @@ export default {
     },
 
     android: {
+      versionCode: 2,
       package: "com.orion.fruityflip",
       adaptiveIcon: {
         foregroundImage: "./assets/images/android-icon-foreground.png",
