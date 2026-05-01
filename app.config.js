@@ -2,7 +2,7 @@ export default {
   expo: {
     name: "Fruity Flip",
     slug: "fruity-flip",
-    version: "1.0.0",
+    version: "1.0.1",
     orientation: "portrait",
     icon: "./assets/images/icon.png",
     scheme: "fruityflip",
@@ -14,7 +14,7 @@ export default {
     },
 
     android: {
-      versionCode: 2,
+      versionCode: 5,
       package: "com.orion.fruityflip",
       adaptiveIcon: {
         foregroundImage: "./assets/images/android-icon-foreground.png",

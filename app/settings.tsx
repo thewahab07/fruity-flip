@@ -155,7 +155,7 @@ export default function SettingsScreen() {
           </Text>
           <View className="flex-row justify-between mb-2 pb-2 border-b border-gray-200">
             <Text className="text-gray-700 font-primary">Version</Text>
-            <Text className="text-gray-600 font-primary">1.0.0</Text>
+            <Text className="text-gray-600 font-primary">1.0.1</Text>
           </View>
           <View className="flex-row justify-between mb-4">
             <Text className="text-gray-700 font-primary">Game Type</Text>
